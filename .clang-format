@@ -3,11 +3,7 @@ UseTab: AlignWithSpaces
 TabWidth: 8
 IndentWidth: 8
 ContinuationIndentWidth: 8
-AlignArrayOfStructures: Left
-AlignConsecutiveMacros: Consecutive
-AlignConsecutiveAssignments: Consecutive
-AlignConsecutiveBitFields: Consecutive
-AlignConsecutiveDeclarations: Consecutive
+AlignArrayOfStructures: Right
 AlignEscapedNewlines: Left
 AlignOperands: AlignAfterOperator
 AllowShortEnumsOnASingleLine: false
@@ -16,7 +12,7 @@ AlwaysBreakAfterReturnType: AllDefinitions
 BinPackArguments: false
 BinPackParameters: false
 BreakBeforeBinaryOperators: All
-ColumnLimit: 100
+ColumnLimit: 0
 QualifierAlignment: Left
 IncludeBlocks: Regroup
 IndentPPDirectives: BeforeHash
