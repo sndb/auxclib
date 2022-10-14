@@ -8,3 +8,7 @@
 	}
 
 #define free_all(...) func_apply(void, free, __VA_ARGS__)
+
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+#define MIN(x, y) ((x) < (y) ? (x) : (y))
+#define BETWEEN(x, a, b) ((x) >= (a) && (x) <= (b))
