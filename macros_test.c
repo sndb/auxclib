@@ -41,9 +41,47 @@ test_between() {
 	assert(!BETWEEN(1.0 / 2, 0.3, 0.4));
 }
 
+void
+test_array_size() {
+	int a[] = {1, 2, 3, 4};
+	assert(ARRAY_SIZE(a) == 4);
+	int b[] = {0};
+	assert(ARRAY_SIZE(b) == 1);
+	int c[16384];
+	assert(ARRAY_SIZE(c) == 16384);
+}
+
+struct container {
+	int a;
+	int b;
+};
+
+void
+test_container_of() {
+	struct container c1 = {1, 2};
+	int *d = &c1.b;
+
+	struct container *c2 = CONTAINER_OF(d, struct container, b);
+	assert(c2->a == c1.a);
+	assert(c2->b == c1.b);
+
+	c2->a = 3;
+	assert(c1.a == 3);
+	assert(c1.b == 2);
+	assert(c2->a == 3);
+	assert(c2->b == 2);
+
+	c2->b = 4;
+	assert(c1.b == 4);
+	assert(c2->b == 4);
+	assert(*d == 4);
+}
+
 int
 main(void) {
 	test_max();
 	test_min();
 	test_between();
+	test_array_size();
+	test_container_of();
 }
