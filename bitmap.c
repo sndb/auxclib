@@ -1,7 +1,5 @@
 #include "bitmap.h"
 
-#include "macros.h"
-
 #include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -18,7 +16,8 @@ bitmap_new(size_t len_bytes) {
 
 void
 bitmap_free(struct bitmap *bm) {
-	free_all(bm->cells, bm);
+	free(bm->cells);
+	free(bm);
 }
 
 void

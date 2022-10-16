@@ -1,6 +1,6 @@
 #include <stddef.h>
 
-#define func_apply(type, f, ...)                                \
+#define FN_APPLY(type, f, ...)                                  \
 	{                                                       \
 		void *stopper = (int[]){0};                     \
 		type **args = (type *[]){__VA_ARGS__, stopper}; \
@@ -9,8 +9,7 @@
 		}                                               \
 	}
 
-#define free_all(...) func_apply(void, free, __VA_ARGS__)
-
+#define FREE_ALL(...) FN_APPLY(void, free, __VA_ARGS__)
 #define MAX(x, y) ((x) > (y) ? (x) : (y))
 #define MIN(x, y) ((x) < (y) ? (x) : (y))
 #define BETWEEN(x, a, b) ((x) >= (a) && (x) <= (b))

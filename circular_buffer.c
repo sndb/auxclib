@@ -1,7 +1,5 @@
 #include "circular_buffer.h"
 
-#include "macros.h"
-
 #include <assert.h>
 #include <stdlib.h>
 
@@ -16,7 +14,8 @@ cb_new(size_t n) {
 
 void
 cb_free(struct circular_buffer *cb) {
-	free_all(cb->data, cb);
+	free(cb->data);
+	free(cb);
 }
 
 void
