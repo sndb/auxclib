@@ -40,6 +40,13 @@ vector_pop(struct vector *v) {
 	return v->data[v->length];
 }
 
+int
+vector_get(const struct vector *v, size_t idx) {
+	if (idx >= v->length)
+		return 0;
+	return v->data[idx];
+}
+
 ssize_t
 vector_index(const struct vector *v, int val) {
 	for (size_t i = 0; i < v->length; i++)

@@ -50,10 +50,21 @@ test_vector_index() {
 	vector_free(v);
 }
 
+void
+test_vector_get() {
+	struct vector *v = vector_new();
+	for (int i = 0; i < 100; i++)
+		vector_push(v, i);
+	for (int i = 0; i < 100; i++)
+		assert(vector_get(v, i) == i);
+	vector_free(v);
+}
+
 int
 main(void) {
 	test_vector_new();
 	test_vector_expand();
 	test_vector_push_pop();
 	test_vector_index();
+	test_vector_get();
 }
